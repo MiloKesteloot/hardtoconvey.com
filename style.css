@@ -32,7 +32,7 @@ body {
 
 .card {
     width: 100%;
-    max-width: 560px;
+    max-width: 570px;
     background: var(--card);
     border: 4px solid var(--maroon);
     border-radius: 28px;
@@ -60,12 +60,31 @@ h1 {
     color: var(--wood-dark);
 }
 
+.subtitle a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--orange-dark);
+    text-underline-offset: 2px;
+}
+
+.subtitle a:hover {
+    color: var(--maroon);
+}
+
+.gallery {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
 .screenshot {
+    flex: 1 1 200px;
+    min-width: 0;
     width: 100%;
     border-radius: 16px;
     border: 3px solid var(--maroon);
     display: block;
-    margin-bottom: 18px;
 }
 
 .tagline {
@@ -139,6 +158,45 @@ h1 {
 .button-platform {
     font-family: "Baloo 2", sans-serif;
     font-size: 1.1rem;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 22px;
+}
+
+.social-row {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.social-links a,
+.social-discord {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--wood-dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.social-links a:hover {
+    color: var(--maroon);
+}
+
+.social-links svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
 }
 
 footer {
