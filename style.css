@@ -47,10 +47,23 @@ body {
     margin-bottom: 4px;
 }
 
+.badge {
+    display: inline-block;
+    background: var(--maroon);
+    color: var(--card);
+    font-family: "Baloo 2", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
 h1 {
     font-family: "Baloo 2", sans-serif;
     font-size: 2.4rem;
-    margin: 4px 0 2px;
+    margin: 8px 0 2px;
     color: var(--maroon);
 }
 
@@ -69,6 +82,22 @@ h1 {
 
 .subtitle a:hover {
     color: var(--maroon);
+}
+
+.feedback {
+    background: rgba(122, 46, 31, 0.06);
+    border: 2px dashed var(--wood);
+    border-radius: 14px;
+    padding: 12px 18px;
+    margin: 0 0 22px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--wood-dark);
+}
+
+.feedback a {
+    color: var(--maroon);
+    font-weight: 600;
 }
 
 .gallery {
