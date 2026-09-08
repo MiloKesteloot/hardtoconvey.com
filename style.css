@@ -26,8 +26,24 @@ body {
         linear-gradient(rgba(122, 46, 31, 0.06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(122, 46, 31, 0.06) 1px, transparent 1px);
     background-size: 48px 48px;
+    animation: grid-drift 9s linear infinite;
     font-family: "Nunito", sans-serif;
     color: var(--text);
+}
+
+@keyframes grid-drift {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 48px 48px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none;
+    }
 }
 
 .card {
@@ -79,6 +95,23 @@ h1 {
     white-space: nowrap;
 }
 
+@media (max-width: 420px) {
+    .title-row {
+        grid-template-columns: 1fr;
+        row-gap: 2px;
+        margin-bottom: 14px;
+    }
+
+    .badge {
+        grid-column: 1;
+        justify-self: center;
+    }
+
+    h1 {
+        grid-column: 1;
+    }
+}
+
 .subtitle {
     margin: 0 0 20px;
     font-weight: 600;
@@ -123,6 +156,8 @@ h1 {
     flex: 1 1 200px;
     min-width: 0;
     width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
     border-radius: 16px;
     border: 3px solid var(--maroon);
     display: block;
