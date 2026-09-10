@@ -362,3 +362,7 @@ footer {
     color: var(--wood-dark);
     opacity: 0.8;
 }
+
+.version {
+    opacity: 0.7;
+}
