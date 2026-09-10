@@ -75,15 +75,16 @@ body {
 .badge {
     grid-column: 3;
     justify-self: start;
-    background: var(--maroon);
-    color: var(--card);
+    background: transparent;
+    color: var(--maroon);
     font-family: "Baloo 2", sans-serif;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 999px;
+    padding: 3px 10px;
+    border: 1.5px solid var(--maroon);
+    border-radius: 6px;
 }
 
 h1 {
