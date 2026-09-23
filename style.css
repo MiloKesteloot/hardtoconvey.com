@@ -41,7 +41,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    body {
+    body,
+    .lightbox {
         animation: none;
     }
 }
@@ -156,12 +157,86 @@ h1 {
 .screenshot {
     flex: 1 1 200px;
     min-width: 0;
-    width: 100%;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
+    padding: 0;
     border-radius: 16px;
     border: 3px solid var(--maroon);
+    background: #f0b37a;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+.screenshot img {
     display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+    /* Keep the image on its own layer so it doesn't snap a pixel sideways when the hover scale starts. */
+    will-change: transform;
+}
+
+.screenshot:hover img {
+    transform: scale(1.03);
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background-color: var(--cream);
+    background-image:
+        linear-gradient(rgba(122, 46, 31, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 46, 31, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    animation: grid-drift 9s linear infinite;
+    cursor: zoom-out;
+}
+
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox-image {
+    display: block;
+    /* As big as fits inside the 30px margin, keeping the image's aspect ratio. */
+    /* The border and bottom shadow (4px + 8px) count toward the 30px margin. */
+    width: min(100vw - 60px, (100dvh - 60px - 16px) * var(--ratio, 1.5) + 8px);
+    height: auto;
+    border: 4px solid var(--maroon);
+    border-radius: 20px;
+    box-shadow: 0 8px 0 var(--maroon), 0 12px 24px rgba(90, 40, 20, 0.25);
+    margin-bottom: 8px;
+    cursor: default;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 50%;
+    border: 3px solid var(--maroon-dark);
+    background: var(--card);
+    color: var(--maroon);
+    box-shadow: 0 3px 0 var(--maroon-dark);
+    cursor: pointer;
+}
+
+.lightbox-close svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.lightbox-close:hover {
+    background: #f0b37a;
 }
 
 .tagline {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hard to Convey – Cozy Puzzle Game</title>
     <meta name="description" content="Hard to Convey is a cozy puzzle game about conveyor belts, sushi, and cute cats. Download the early demo for Windows or Mac.">
-    <link rel="icon" type="image/png" href="/icon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
 </head>
 <body>
     <main class="card">
-        <img class="icon" src="icon.png" alt="Hard to Convey sushi icon">
+        <img class="icon" src="icon-128.png" width="64" height="64" alt="Hard to Convey sushi icon">
         <div class="title-row">
             <h1>Hard to Convey</h1>
             <span class="badge">Demo</span>
@@ -129,9 +129,77 @@
         <p class="notice">Please don't redistribute these files elsewhere.</p>
 
         <div class="gallery">
-            <img class="screenshot" src="images/screenshot.png" alt="Hard to Convey gameplay screenshot">
-            <img class="screenshot" src="images/concept-art-1.png" alt="Hard to Convey concept art">
+            <button class="screenshot" type="button" data-full="images/screenshot.webp" aria-label="View gameplay screenshot full size">
+                <img src="images/thumbs/screenshot.webp" width="640" height="421" alt="Hard to Convey gameplay screenshot">
+            </button>
+            <button class="screenshot" type="button" data-full="images/concept-art-1.webp" aria-label="View concept art full size">
+                <img src="images/thumbs/concept-art-1.webp" width="640" height="359" alt="Hard to Convey concept art">
+            </button>
         </div>
+
+        <div class="lightbox" id="lightbox" hidden>
+            <img class="lightbox-image" id="lightboxImage" alt="">
+            <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+        <script>
+            (function () {
+                var shots = document.querySelectorAll(".screenshot");
+                var lightbox = document.getElementById("lightbox");
+                var lightboxImage = document.getElementById("lightboxImage");
+                var loaded = {};
+
+                // Once the page (and its small thumbnails) has loaded, fetch the full-size
+                // images in the background so the viewer can show them right away.
+                window.addEventListener("load", function () {
+                    shots.forEach(function (shot) {
+                        var full = new Image();
+                        full.onload = function () { loaded[shot.dataset.full] = true; };
+                        full.src = shot.dataset.full;
+                    });
+                });
+
+                function open(shot) {
+                    var thumb = shot.querySelector("img");
+                    var fullSrc = shot.dataset.full;
+                    lightboxImage.alt = thumb.alt;
+                    lightboxImage.style.setProperty("--ratio", thumb.naturalWidth / thumb.naturalHeight || 1.5);
+                    if (loaded[fullSrc]) {
+                        lightboxImage.src = fullSrc;
+                    } else {
+                        // Show the thumbnail until the full-size image arrives.
+                        lightboxImage.src = thumb.src;
+                        var full = new Image();
+                        full.onload = function () {
+                            loaded[fullSrc] = true;
+                            if (!lightbox.hidden && lightboxImage.alt === thumb.alt) {
+                                lightboxImage.src = fullSrc;
+                            }
+                        };
+                        full.src = fullSrc;
+                    }
+                    lightbox.hidden = false;
+                    document.body.style.overflow = "hidden";
+                    document.getElementById("lightboxClose").focus();
+                }
+
+                function close() {
+                    lightbox.hidden = true;
+                    document.body.style.overflow = "";
+                }
+
+                shots.forEach(function (shot) {
+                    shot.addEventListener("click", function () { open(shot); });
+                });
+                lightbox.addEventListener("click", function (e) {
+                    if (e.target !== lightboxImage) { close(); }
+                });
+                document.addEventListener("keydown", function (e) {
+                    if (e.key === "Escape" && !lightbox.hidden) { close(); }
+                });
+            })();
+        </script>
 
         <div class="social-links">
             <ul class="social-row">
