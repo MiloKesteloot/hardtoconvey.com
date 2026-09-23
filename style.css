@@ -229,6 +229,17 @@ h1 {
     flex-shrink: 0;
     border: 2px solid var(--maroon);
     background: #f0b37a;
+    overflow: hidden;
+}
+
+.discord-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.discord-icon img[hidden] {
+    display: none;
 }
 
 .discord-info {

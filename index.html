@@ -37,7 +37,9 @@
         <p class="tagline">A cozy thinky puzzle game about conveyor belts, sushi, and cute cats.</p>
 
         <div class="discord-card">
-            <img class="discord-icon" id="discordIcon" alt="Hard to Convey Discord server icon" hidden>
+            <div class="discord-icon">
+                <img id="discordIcon" alt="Hard to Convey Discord server icon" hidden>
+            </div>
             <div class="discord-info">
                 <span class="discord-name" id="discordName">Hard to Convey - Discord</span>
                 <span class="discord-stats" id="discordStats">Join our community</span>
@@ -55,8 +57,10 @@
                         var guild = data.guild;
                         if (guild && guild.icon) {
                             var icon = document.getElementById("discordIcon");
+                            // Only reveal the image once it has loaded, so the placeholder circle
+                            // shows instead of a broken-image icon and alt text.
+                            icon.onload = function () { icon.hidden = false; };
                             icon.src = "https://cdn.discordapp.com/icons/" + guild.id + "/" + guild.icon + ".png?size=64";
-                            icon.hidden = false;
                         }
                         if (guild && guild.name) {
                             document.getElementById("discordName").textContent = guild.name + " - Discord";
