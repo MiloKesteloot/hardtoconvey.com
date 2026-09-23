@@ -205,8 +205,11 @@ h1 {
     display: block;
     /* As big as fits inside the 30px margin, keeping the image's aspect ratio. */
     /* The border and bottom shadow (4px + 8px) count toward the 30px margin. */
-    width: min(100vw - 60px, (100dvh - 60px - 16px) * var(--ratio, 1.5) + 8px);
+    box-sizing: content-box;
+    width: min(100vw - 60px - 8px, (100dvh - 60px - 16px) * var(--ratio, 1.5));
     height: auto;
+    aspect-ratio: var(--ratio, 1.5);
+    object-fit: contain;
     border: 4px solid var(--maroon);
     border-radius: 20px;
     box-shadow: 0 8px 0 var(--maroon), 0 12px 24px rgba(90, 40, 20, 0.25);

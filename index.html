@@ -160,32 +160,46 @@
                     });
                 });
 
+                var current = null;
+
+                // Swap the viewer to src only once it's decoded, so it never paints half-ready.
+                function showWhenReady(src, shot) {
+                    var img = new Image();
+                    img.src = src;
+                    var ready = img.decode ? img.decode() : Promise.resolve();
+                    return ready.catch(function () {}).then(function () {
+                        if (current !== shot) { return; }
+                        lightboxImage.src = src;
+                        if (lightbox.hidden) {
+                            lightbox.hidden = false;
+                            document.getElementById("lightboxClose").focus();
+                        }
+                    });
+                }
+
                 function open(shot) {
                     var thumb = shot.querySelector("img");
                     var fullSrc = shot.dataset.full;
+                    current = shot;
                     lightboxImage.alt = thumb.alt;
                     lightboxImage.style.setProperty("--ratio", thumb.naturalWidth / thumb.naturalHeight || 1.5);
+                    document.body.style.overflow = "hidden";
                     if (loaded[fullSrc]) {
-                        lightboxImage.src = fullSrc;
+                        showWhenReady(fullSrc, shot);
                     } else {
                         // Show the thumbnail until the full-size image arrives.
-                        lightboxImage.src = thumb.src;
-                        var full = new Image();
-                        full.onload = function () {
+                        showWhenReady(thumb.src, shot).then(function () {
+                            return showWhenReady(fullSrc, shot);
+                        }).then(function () {
                             loaded[fullSrc] = true;
-                            if (!lightbox.hidden && lightboxImage.alt === thumb.alt) {
-                                lightboxImage.src = fullSrc;
-                            }
-                        };
-                        full.src = fullSrc;
+                        });
                     }
-                    lightbox.hidden = false;
-                    document.body.style.overflow = "hidden";
-                    document.getElementById("lightboxClose").focus();
                 }
 
                 function close() {
+                    current = null;
                     lightbox.hidden = true;
+                    lightboxImage.removeAttribute("src");
                     document.body.style.overflow = "";
                 }
 
@@ -237,7 +251,7 @@
         </div>
 
         <footer>
-            &copy; 2026 Milo Kesteloot &middot; <span class="version">v0.1.1</span>
+            &copy; 2026 Milo Kesteloot &middot; <span class="version">v0.1.2</span>
         </footer>
     </main>
 </body>
