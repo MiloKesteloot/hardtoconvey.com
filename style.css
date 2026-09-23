@@ -14,6 +14,12 @@
     box-sizing: border-box;
 }
 
+/* Keyboard focus ring (mouse clicks don't show it). */
+:focus-visible {
+    outline: 3px solid var(--maroon);
+    outline-offset: 3px;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -127,7 +133,8 @@ h1 {
     text-underline-offset: 2px;
 }
 
-.subtitle a:hover {
+.subtitle a:hover,
+.subtitle a:focus-visible {
     color: var(--maroon);
 }
 
@@ -176,7 +183,8 @@ h1 {
     will-change: transform;
 }
 
-.screenshot:hover img {
+.screenshot:hover img,
+.screenshot:focus-visible img {
     transform: scale(1.03);
 }
 
@@ -238,7 +246,8 @@ h1 {
     height: 100%;
 }
 
-.lightbox-close:hover {
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
     background: #f0b37a;
 }
 
@@ -268,6 +277,21 @@ h1 {
 .downloads.os-mac .download-row[data-os="windows"] .button,
 .downloads.os-windows .download-row[data-os="mac"] .button {
     background: var(--wood);
+}
+
+/* Only shown on phones and tablets, where the downloads can't be used. */
+.mobile-note {
+    display: none;
+    margin: 0 0 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--maroon);
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .mobile-note {
+        display: block;
+    }
 }
 
 .notice {
@@ -353,6 +377,7 @@ h1 {
     text-decoration: none;
     box-shadow: 0 3px 0 var(--maroon-dark);
     transition: transform 0.1s ease, box-shadow 0.1s ease;
+    user-select: none;
 }
 
 .discord-join svg {
@@ -360,7 +385,8 @@ h1 {
     height: 16px;
 }
 
-.discord-join:hover {
+.discord-join:hover,
+.discord-join:focus-visible {
     transform: translateY(-2px);
     box-shadow: 0 5px 0 var(--maroon-dark);
 }
@@ -382,9 +408,11 @@ h1 {
     text-decoration: none;
     box-shadow: 0 4px 0 var(--maroon-dark);
     transition: transform 0.1s ease, box-shadow 0.1s ease;
+    user-select: none;
 }
 
-.button:hover {
+.button:hover,
+.button:focus-visible {
     transform: translateY(-2px);
     box-shadow: 0 6px 0 var(--maroon-dark);
 }
@@ -448,7 +476,8 @@ h1 {
     font-size: 0.85rem;
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-links a:focus-visible {
     color: var(--maroon);
 }
 
