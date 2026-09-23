@@ -171,10 +171,25 @@ h1 {
 
 .downloads {
     display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 10px;
+}
+
+.download-row {
+    display: flex;
     gap: 16px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 10px;
+}
+
+.downloads.os-mac .download-row[data-os="mac"] {
+    order: -1;
+}
+
+.downloads.os-mac .download-row[data-os="windows"] .button,
+.downloads.os-windows .download-row[data-os="mac"] .button {
+    background: var(--wood);
 }
 
 .notice {
@@ -213,6 +228,7 @@ h1 {
     border-radius: 50%;
     flex-shrink: 0;
     border: 2px solid var(--maroon);
+    background: #f0b37a;
 }
 
 .discord-info {
@@ -277,10 +293,6 @@ h1 {
     text-decoration: none;
     box-shadow: 0 4px 0 var(--maroon-dark);
     transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
-
-.button:nth-child(3) {
-    background: var(--wood);
 }
 
 .button:hover {
