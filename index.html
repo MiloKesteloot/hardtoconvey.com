@@ -7,6 +7,16 @@
     <meta name="description" content="Hard to Convey is a cozy puzzle game about conveyor belts, sushi, and cute cats. Download the early demo for Windows or Mac.">
     <link rel="canonical" href="https://www.hardtoconvey.com/">
     <meta name="theme-color" content="#f9ecd8">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Hard to Convey">
+    <meta property="og:title" content="Hard to Convey">
+    <meta property="og:description" content="A cozy thinky puzzle game about conveyor belts, sushi, and cute cats. Free demo for Windows and Mac.">
+    <meta property="og:url" content="https://www.hardtoconvey.com/">
+    <meta property="og:image" content="https://www.hardtoconvey.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Concept art of a cozy sushi shop on a lantern-lit street, with cats lounging nearby">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,6 +136,16 @@
                         <span class="button-platform">Mac (Intel)</span>
                     </span>
                 </a>
+                <div class="mac-help" id="macHelp" hidden>
+                    <h2>Opening the game on Mac</h2>
+                    <p>Your Mac will warn that it can't verify Hard to Convey because I'm not a registered Apple developer yet. To open it anyway:</p>
+                    <ol>
+                        <li>Unzip the download and double-click the game. When the warning appears, click Done.</li>
+                        <li>Open System Settings, go to Privacy &amp; Security, and scroll down to Security.</li>
+                        <li>Click Open Anyway.</li>
+                    </ol>
+                    <a href="https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac" target="_blank" rel="noopener">Apple's guide, with screenshots</a>
+                </div>
             </div>
         </div>
         <script>
@@ -139,6 +159,15 @@
                 } else if (/win/i.test(platform)) {
                     downloads.classList.add("os-windows");
                 }
+
+                // After a Mac download starts, show how to get past the "can't verify" warning.
+                var macHelp = document.getElementById("macHelp");
+                downloads.querySelectorAll('[data-os="mac"] .button').forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        macHelp.hidden = false;
+                        macHelp.scrollIntoView({ block: "nearest" });
+                    });
+                });
 
                 // Show each download's file size, read from the server so it stays right when a build is replaced.
                 downloads.querySelectorAll(".button").forEach(function (button) {

@@ -270,6 +270,42 @@ h1 {
     flex-wrap: wrap;
 }
 
+.mac-help {
+    flex-basis: 100%;
+    text-align: left;
+    background: rgba(122, 46, 31, 0.06);
+    border: 2px solid var(--wood);
+    border-radius: 16px;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.mac-help h2 {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 1.1rem;
+    color: var(--maroon);
+    margin: 0 0 4px;
+}
+
+.mac-help p,
+.mac-help ol {
+    margin: 0 0 10px;
+}
+
+.mac-help ol {
+    padding-left: 1.4em;
+}
+
+.mac-help li + li {
+    margin-top: 4px;
+}
+
+.mac-help a {
+    color: var(--maroon);
+    font-weight: 600;
+}
+
 .downloads.os-mac .download-row[data-os="mac"] {
     order: -1;
 }
