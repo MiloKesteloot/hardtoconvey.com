@@ -1,6 +1,24 @@
 {
   "releases": [
     {
+      "version": "0.2.0",
+      "date": "2026-11-01",
+      "files": [
+        {
+          "platform": "windows",
+          "label": "Windows",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.2.0/HardToConvey-0.2.0-Windows.zip",
+          "bytes": 51251949
+        },
+        {
+          "platform": "mac",
+          "label": "Mac",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.2.0/HardToConvey-0.2.0-Mac.app.zip",
+          "bytes": 58887702
+        }
+      ]
+    },
+    {
       "version": "0.1.4",
       "date": "2026-10-27",
       "files": [
