@@ -1,0 +1,138 @@
+{
+  "releases": [
+    {
+      "version": "0.1.4",
+      "date": "2026-10-27",
+      "files": [
+        {
+          "platform": "windows",
+          "label": "Windows",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.4/HardToConvey-0.1.4-Windows.zip",
+          "bytes": 49412619
+        },
+        {
+          "platform": "mac",
+          "label": "Mac (Apple Silicon)",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.4/HardToConvey-0.1.4-Mac-AppleSilicon.app.zip",
+          "bytes": 40301969
+        },
+        {
+          "platform": "mac",
+          "label": "Mac (Intel)",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.4/HardToConvey-0.1.4-Mac-Intel.app.zip",
+          "bytes": 42132868
+        }
+      ]
+    },
+    {
+      "version": "0.1.4",
+      "date": "2026-09-24",
+      "files": [
+        {
+          "platform": "windows",
+          "label": "Windows",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.4/HardToConvey-0.1.4-Windows-Sep24.zip",
+          "bytes": 46756064
+        },
+        {
+          "platform": "mac",
+          "label": "Mac (Apple Silicon)",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.4/HardToConvey-0.1.4-Mac-AppleSilicon.app.zip",
+          "bytes": 40301969
+        },
+        {
+          "platform": "mac",
+          "label": "Mac (Intel)",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.4/HardToConvey-0.1.4-Mac-Intel.app.zip",
+          "bytes": 42132868
+        }
+      ],
+      "label": "v0.1.4 (first build)"
+    },
+    {
+      "version": "0.1.3",
+      "date": "2026-09-23",
+      "files": [
+        {
+          "platform": "windows",
+          "label": "Windows",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.1/HardToConvey-0.1.1-Windows.zip",
+          "bytes": 45589970
+        },
+        {
+          "platform": "mac",
+          "label": "Mac (Apple Silicon)",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.3/HardToConvey-0.1.3-Mac-AppleSilicon.app.zip",
+          "bytes": 40303076
+        },
+        {
+          "platform": "mac",
+          "label": "Mac (Intel)",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.1/HardToConvey-0.1.1-Mac-Intel.app.zip",
+          "bytes": 40394463
+        }
+      ]
+    },
+    {
+      "version": "0.1.1",
+      "date": "2026-09-15",
+      "files": [
+        {
+          "platform": "windows",
+          "label": "Windows",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.1/HardToConvey-0.1.1-Windows.zip",
+          "bytes": 45589970
+        },
+        {
+          "platform": "mac",
+          "label": "Mac (Apple Silicon)",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.1/HardToConvey-0.1.1-Mac-AppleSilicon.app.zip",
+          "bytes": 40296687
+        },
+        {
+          "platform": "mac",
+          "label": "Mac (Intel)",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.1/HardToConvey-0.1.1-Mac-Intel.app.zip",
+          "bytes": 40394463
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "date": "2026-09-10",
+      "files": [
+        {
+          "platform": "windows",
+          "label": "Windows",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/demo-2026-09-07/HardToConvey-demo-Windows.zip",
+          "bytes": 36499998
+        },
+        {
+          "platform": "mac",
+          "label": "Mac",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/v0.1.0/HardToConvey-0.1.0-Mac.app.zip",
+          "bytes": 36030030
+        }
+      ]
+    },
+    {
+      "version": "0.0.0",
+      "date": "2026-09-07",
+      "files": [
+        {
+          "platform": "windows",
+          "label": "Windows",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/demo-2026-09-07/HardToConvey-demo-Windows.zip",
+          "bytes": 36499998
+        },
+        {
+          "platform": "mac",
+          "label": "Mac",
+          "url": "https://github.com/MiloKesteloot/hardtoconvey.com/releases/download/demo-2026-09-07/HardToConvey-demo-Mac.app.zip",
+          "bytes": 31297248
+        }
+      ],
+      "label": "First demo"
+    }
+  ]
+}

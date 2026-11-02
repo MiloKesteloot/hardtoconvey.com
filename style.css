@@ -258,20 +258,16 @@ h1 {
 
 .downloads {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 10px;
-}
-
-.download-row {
-    display: flex;
     gap: 16px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 10px;
 }
 
 .mac-help {
     flex-basis: 100%;
+    /* Always below the buttons, even after they're reordered for the visitor's platform. */
+    order: 1;
     text-align: left;
     background: rgba(122, 46, 31, 0.06);
     border: 2px solid var(--wood);
@@ -306,13 +302,54 @@ h1 {
     font-weight: 600;
 }
 
-.downloads.os-mac .download-row[data-os="mac"] {
+.downloads.os-mac .button[data-os="mac"] {
     order: -1;
 }
 
-.downloads.os-mac .download-row[data-os="windows"] .button,
-.downloads.os-windows .download-row[data-os="mac"] .button {
+.downloads.os-mac .button[data-os="windows"],
+.downloads.os-windows .button[data-os="mac"] {
     background: var(--wood);
+}
+
+.older-versions {
+    margin: 0 0 10px;
+    font-size: 0.85rem;
+    color: var(--wood-dark);
+}
+
+.older-versions summary {
+    cursor: pointer;
+    font-weight: 600;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.older-versions summary:hover {
+    color: var(--maroon);
+}
+
+.older-versions ul {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 12px 16px;
+    background: rgba(122, 46, 31, 0.06);
+    border: 2px solid var(--wood);
+    border-radius: 16px;
+    text-align: left;
+}
+
+.older-versions li + li {
+    margin-top: 6px;
+}
+
+.older-version {
+    font-weight: 700;
+    color: var(--maroon);
+}
+
+.older-versions a {
+    color: var(--maroon);
+    font-weight: 600;
 }
 
 /* Only shown on phones and tablets, where the downloads can't be used. */
